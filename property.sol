@@ -7,6 +7,7 @@ contract property{
     address public buyers;
     uint256 public initialamount;
     uint256 public price;
+    uint256 public minprice;
     string need;
     string r="rent";
     string b="Buy";
@@ -44,13 +45,8 @@ contract property{
             propertyNegotiate();
         }
     }
-    function Sub() view public returns (uint256)
-    {
-        uint256 ans = price- initialamount;
-        return ans;
-    }
     function propertyNegotiate() public payable{
-        if(Sub()<=5000);{
+        if(msg.value>=minprice);{
             currentowner =getTheLastUser();
         }
         else{
